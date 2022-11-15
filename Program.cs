@@ -2,6 +2,7 @@
 using Unit05.Game.Directing;
 using Unit05.Game.Scripting;
 using Unit05.Game.Services;
+using Unit05.Game;
 
 
 namespace Unit05
@@ -20,7 +21,8 @@ namespace Unit05
             // create the cast
             Cast cast = new Cast();
             cast.AddActor("food", new Food());
-            cast.AddActor("snake", new Snake());
+            cast.AddActor("player1", new Snake(Constants.MAX_X / 6, Constants.MAX_Y / 2));
+            cast.AddActor("player2", new Snake(((5*Constants.MAX_X) / 6), Constants.MAX_Y / 2));
             cast.AddActor("score", new Score());
 
             // create the services
