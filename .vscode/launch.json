@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Unit05 (Snake)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-Unit05",
+            "program": "${workspaceFolder}/Unit05/bin/Debug/net6.0/Unit05.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Unit05",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+    ]
+}
