@@ -39,23 +39,6 @@ namespace Unit05.Game.Scripting
         /// Updates the score nd moves the food if the snake collides with it.
         /// </summary>
         /// <param name="cast">The cast of actors.</param>
-<<<<<<< HEAD
-=======
-        private void HandleFoodCollisions(Cast cast)
-        {
-            Snake player1 = (Snake)cast.GetFirstActor("player1");
-            Score score = (Score)cast.GetFirstActor("score");
-            Food food = (Food)cast.GetFirstActor("food");
-            
-            if (player1.GetHead().GetPosition().Equals(food.GetPosition()))
-            {
-                int points = food.GetPoints();
-                player1.GrowTail(points);
-                score.AddPoints(points);
-                food.Reset();
-            }
-        }
->>>>>>> b4dcf95b69d6938aa70c5e7f56156732789fc783
 
         /// <summary>
         /// Sets the game over flag if the snake collides with one of its segments.
@@ -80,14 +63,8 @@ namespace Unit05.Game.Scripting
         {
             if (_isGameOver == true)
             {
-<<<<<<< HEAD
-                Snake snake = (Snake)cast.GetFirstActor("snake");
-                List<Actor> segments = snake.GetSegments();
-=======
                 Snake player1 = (Snake)cast.GetFirstActor("player1");
                 List<Actor> segments = player1.GetSegments();
-                Food food = (Food)cast.GetFirstActor("food");
->>>>>>> b4dcf95b69d6938aa70c5e7f56156732789fc783
 
                 // create a "game over" message
                 int x = Constants.MAX_X / 2;
