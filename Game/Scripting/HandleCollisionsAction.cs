@@ -17,6 +17,7 @@ namespace Unit05.Game.Scripting
     public class HandleCollisionsAction : Action
     {
         private bool _isGameOver = false;
+        private Snake loser = null;
 
         /// <summary>
         /// Constructs a new instance of HandleCollisionsAction.
@@ -50,10 +51,34 @@ namespace Unit05.Game.Scripting
             Actor head = player1.GetHead();
             List<Actor> body = player1.GetBody();
 
+            Snake player2 = (Snake)cast.GetFirstActor("player2");
+            Actor head2 = player2.GetHead();
+            List<Actor> body2 = player2.GetBody();
+
             foreach (Actor segment in body)
             {
                 if (segment.GetPosition().Equals(head.GetPosition()))
                 {
+                    loser = player1;
+                    _isGameOver = true;
+                }
+                else if (segment.GetPosition().Equals(head2.GetPosition()))
+                {
+                    loser = player2;
+                    _isGameOver = true;
+                }
+            }
+
+            foreach (Actor segment in body2)
+            {
+                if (segment.GetPosition().Equals(head2.GetPosition()))
+                {
+                    loser = player2;
+                    _isGameOver = true;
+                }
+                if (segment.GetPosition().Equals(head.GetPosition()))
+                {
+                    loser = player1;
                     _isGameOver = true;
                 }
             }
@@ -63,8 +88,8 @@ namespace Unit05.Game.Scripting
         {
             if (_isGameOver == true)
             {
-                Snake player1 = (Snake)cast.GetFirstActor("player1");
-                List<Actor> segments = player1.GetSegments();
+                loser.SetColor(Constants.WHITE);
+                List<Actor> segments = loser.GetSegments();
 
                 // create a "game over" message
                 int x = Constants.MAX_X / 2;
