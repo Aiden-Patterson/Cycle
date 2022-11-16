@@ -20,8 +20,11 @@ namespace Unit05
         {
             // create the cast
             Cast cast = new Cast();
-            cast.AddActor("player1", new Snake(Constants.MAX_X / 6, Constants.MAX_Y / 2));
-            cast.AddActor("player2", new Snake(((5*Constants.MAX_X) / 6), Constants.MAX_Y / 2));
+            Snake player1 = new Snake(Constants.MAX_X / 6, Constants.MAX_Y / 2, Constants.GREEN);
+            Snake player2 = new Snake(((5*Constants.MAX_X) / 6), Constants.MAX_Y / 2, Constants.RED);
+
+            cast.AddActor("player1", player1);
+            cast.AddActor("player2", player2);
             cast.AddActor("score", new Score());
 
             // create the services
